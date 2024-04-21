@@ -78,7 +78,7 @@ export async function scrapeAndStoreProduct(productUrl: string) {
   
   }
 
-  export async function getSimilarProducts({ productId : string}){
+  export async function getSimilarProducts(productId : string){
     try{
       connectToDB();
       const currentProduct = await Product.findById(productId);
