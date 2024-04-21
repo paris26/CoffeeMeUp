@@ -1,6 +1,6 @@
 "use server"
 
-import { EmailProductInfo, NotificationType } from '@/types'
+import { EmailContent, EmailProductInfo, NotificationType } from '@/types'
 import nodemailer from 'nodemailer'
 
 
