@@ -5,7 +5,6 @@ interface Props {
     title: string;
     iconSrc: string;
     value: string;
-    borderColor: string;
 }
 
 const PriceInfoCard = ({title, iconSrc, value}: Props) => {
