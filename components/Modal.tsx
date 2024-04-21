@@ -47,7 +47,7 @@ const Modal = ({productId}: Props) => {
                         enter="ease-out duration-300"
                         enterFrom="opacity-0"
                         enterTo="opacity-100"
-                        Leav="ease-in duration-200"
+                        Leave="ease-in duration-200"
                         LeaveFrom="opacity-100"
                         LeaveTo="opacity-0"
                     >
