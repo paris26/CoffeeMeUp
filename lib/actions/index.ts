@@ -68,6 +68,7 @@ export async function scrapeAndStoreProduct(productUrl: string) {
 // Assuming connectToDB() is called somewhere during application initialization
 export async function getAllProducts(){
   try {
+    connectToDB();
     const products = await Product.find();
     return products;
   } catch(error) {
