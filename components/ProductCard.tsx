@@ -1,5 +1,5 @@
 
-import { RemoveById } from '@/lib/actions';
+// import { RemoveById } from '@/lib/actions';
 import { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const ProductCard = ({ product }: Props) => {
 
   const handleRemove = async (productId: string) => {
     try {
-      await RemoveById(productId);
+      // await RemoveById(productId);
     } catch (error) {
       console.log(error);
     }
