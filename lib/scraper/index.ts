@@ -5,7 +5,7 @@ import { extractCurrency, extractDescription, extractPrice, getAveragePrice } fr
 export async function scrapeAmazonProduct(url: string){
     if(!url) return;
 
-    //Bright data proxy
+    // Bright data proxy
     // curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-hl_1586ec40-zone-coffeemeup:448u34c4m9va -k "http://lumtest.com/myip.json"
     
     const username = String(process.env.BRIGHT_DATA_USERNAME);

@@ -1,43 +1,55 @@
+
+import { RemoveById } from '@/lib/actions';
 import { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-interface Props{
-    product: Product;
+interface Props {
+  product: Product;
 }
+ 
+const ProductCard = ({ product }: Props) => {
 
+  const handleRemove = async (productId: string) => {
+    try {
+      await RemoveById(productId);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-const ProductCard = ({product}: Props) => {
-
-  return (
+    return (
     <Link href={`/products/${product._id}`} className="product-card">
-        <div className="product-card_img-container">
-            <Image 
-                src={product.image}
-                alt={product.title}
-                width={200}
-                height={200}
-                className="product-card_img"
-            />
-        </div>
+      <div className="product-card_img-container">
+        <Image 
+          src={product.image}
+          alt={product.title}
+          width={200}
+          height={200}
+          className="product-card_img"
+        />
+      </div>
 
-        <div className="flex flex-col gap-3">
-            <h3 className="product-title">{product.title}</h3>
-        </div>
+      <button type="button" className="btn"> 
+                Remove
+            </button>
+
+      <div className="flex flex-col gap-3">
+        <h3 className="product-title">{product.title}</h3>
 
         <div className="flex justify-between">
-            <p className="text-black opacity-50 text-lg capitalize">
-                {product.category}
-            </p>
+          <p className="text-black opacity-50 text-lg capitalize">
+            {product.category}
+          </p>
 
-            <p className='text-black tet-lg font-psemisbold ml-4'>
-                <span>{product?.currency}</span>
-                <span>{product.currentPrice}</span>
-
-            </p>
+          <p className="text-black text-lg font-semibold">
+            <span>{product?.currency}</span>
+            <span>{product?.currentPrice}</span>
+          </p>
         </div>
-    </Link >
+      </div>
+    </Link>
   )
 }
 

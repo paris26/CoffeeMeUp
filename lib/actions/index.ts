@@ -65,19 +65,17 @@ export async function scrapeAndStoreProduct(productUrl: string) {
     }
   }
 
-  export async function getAllProducts(){
-    try{
-      connectToDB();
-      const products = await Product.find();
-
-      return products;
-    }catch(error){
-      console.log(error);
-
-    }
-  
-  
+// Assuming connectToDB() is called somewhere during application initialization
+export async function getAllProducts(){
+  try {
+    const products = await Product.find();
+    return products;
+  } catch(error) {
+    console.error("Failed to fetch products:", error);
+    // Consider the implications of what you return here based on how your application should handle errors
+    return [];
   }
+}
 
   export async function getSimilarProducts(productId : string){
     try{
@@ -127,3 +125,19 @@ export async function scrapeAndStoreProduct(productUrl: string) {
   
   
   } 
+
+
+// export async function RemoveByTitle(productId:string){
+//   try{
+//     connectToDB();
+//     const product = await Product.findByIdAndDelete(productId);
+
+//     if(!product) return;
+
+//     revalidatePath('/products');
+//   }catch(error){
+//     console.log(error);
+//   }
+  
+// }
+  

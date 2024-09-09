@@ -16,6 +16,8 @@ const productDetails =  async ({ params: {id} }: Props) => {
   
   const product : Product = await getProductById(id);
 
+  console.log(product.url)
+
   if(!product) redirect('/')
 
 
@@ -164,7 +166,7 @@ const productDetails =  async ({ params: {id} }: Props) => {
             height={22}
           /> 
 
-          <Link href="/" className="text-base text-white">
+          <Link href={product.url} className="text-base text-white">
             Buy Now
           </Link>
         </button>
